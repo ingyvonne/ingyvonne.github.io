@@ -1,4 +1,75 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+    height: 100%;
+    background-color: #141414!important;
+    margin: 0;
+    font-family: "Roboto", "Helvetica Neue", sans-serif;
+}
+
+.bgc-black {
+    background-color: #141414!important;
+}
+
+.c-yellow {
+    color: #F1B205 !important;
+}
+
+.bgc-c-yellow {
+    background-color: #F1B205!important;
+}
+
+.soft-white {
+    color: rgba(255, 255, 255, 0.4)!important;
+}
+
+.soft-white-v2 {
+    color: rgba(92, 88, 73, 0.1)!important;
+}
+
+.soft-gray {
+    color: rgba(92, 88, 73, 0.35) !important;
+}
+
+.soft-gray-v2 {
+    color: rgba(92,88,73,0.50);
+}
+
+h1,h2,h3,h4,h5 {
+    font-weight: 200;
+    color: white;
+}
+
+p {
+    color: white;
+}
+
+hr{
+    color: white;
+}
+
+.btn-outline-success {
+    border-color: #F1B205 !important;
+    color: #F1B205 !important;
+}
+
+.btn-outline-success:hover {
+    background-color: #272a36;
+    color: white !important;
+}
+
+.text-shadow-over-image {
+    text-shadow: 0px 0px 4px rgba(61, 58, 47, 0.5);
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.truncate-2-line {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}

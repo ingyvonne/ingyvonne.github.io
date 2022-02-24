@@ -1,0 +1,10 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.navbar-brand {
+    font-weight: 400;
+    color: #F1B205 !important;
+    /* font-family: "Roboto", "Helvetica Neue", sans-serif; */
+    font-family: 'Permanent Marker', cursive;
+}

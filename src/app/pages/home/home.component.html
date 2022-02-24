@@ -1,0 +1,27 @@
+<app-navbar></app-navbar>
+<section class="container">
+    <div class="row">
+        <div class="col-12 my-2">
+            <button mat-stroked-button class="w-100 container-btn">
+                <div class="row margin-container-btn">
+                    <div class="col-6" [ngClass]="{'category-btn': selectMovies}" (click)="setType('movie')">
+                        <p class="mb-0 d-inline-block category-btn-text pt-0">Películas</p>
+                    </div>
+                    <div class="col-6" [ngClass]="{'category-btn': selectTvShows}" (click)="setType('tvShow')">
+                        <p class="mb-0 d-inline-block category-btn-text pt-0">Series</p>
+                    </div>
+                </div>
+            </button>
+        </div>
+        <div class="col-12 text-white text-center" *ngIf="selectMovies && allMovies && (allMovies.length > 0)">
+            SHOW ALL MOVIES
+            <div *ngFor="let movie of allMovies">
+            </div>
+        </div>
+        <div class="col-12 text-white text-center" *ngIf="selectTvShows && allTvShows && (allTvShows.length > 0)">
+            SHOW ALL TV SHOWS
+            <div *ngFor="let tvShow of allTvShows">
+            </div>
+        </div>
+    </div>
+</section>
