@@ -1,0 +1,46 @@
+
+.page_404 {
+    padding:40px 0; 
+    background:#fff; 
+    font-family: "Roboto", "Helvetica Neue", sans-serif;
+    width: 100vw;
+    height: 100vh;
+}
+
+.page_404 img { 
+    width:100%;
+}
+
+.four_zero_four_bg { 
+    background-image: url('../../../assets/404-pict.gif');
+    height: 400px;
+    background-position: center;
+} 
+
+.error-text {
+    position: relative;
+    top: -18px;
+}
+
+.four_zero_four_bg h1 {
+    font-size:80px;
+}
+
+.four_zero_four_bg h3 {    
+    font-size:80px;
+}
+
+.contant_box_404 { 
+    margin-top:-50px;
+}
+
+:host ::ng-deep body {
+    background-color: white!important;
+}
+
+.btn-home {
+    border-radius: 100px;
+    padding: 8px 15px !important;
+    background-color: #F1B205;
+    color: white;
+}

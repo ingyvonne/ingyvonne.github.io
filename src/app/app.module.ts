@@ -9,6 +9,7 @@ import { environment } from '../environments/environment';
 import { Globals } from './config/Globals';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { HttpClientModule } from "@angular/common/http";
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { HttpClientModule } from "@angular/common/http";
     AppRoutingModule,
     BrowserAnimationsModule,
     LazyLoadImageModule,
+    RouterModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable
