@@ -5,7 +5,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { PagesModule } from '../pages.module';
 import { NavbarModule } from 'src/app/components/navbar/navbar.module';
-
+import { HorizontalCardModule } from 'src/app/components/horizontal-card/horizontal-card.module';
 
 @NgModule({
   declarations: [
@@ -15,6 +15,7 @@ import { NavbarModule } from 'src/app/components/navbar/navbar.module';
     CommonModule,
     PagesModule,
     NavbarModule,
+    HorizontalCardModule,
     HomeRoutingModule
   ]
 })

@@ -1,0 +1,97 @@
+<mat-card *ngIf="movie" class="c-mb-6" style="margin-top: 20px; margin-bottom: 12px;" (click)="goToMovieDetail(movie)">
+    <div class="row mx-0 elements-height">
+        <div class="col-4 px-0 position-relative" *ngIf="movie">
+            <ng-container>
+                <ng-container>
+                    <div class="img-container">
+                        <img mat-card-image *ngIf="movie && movie.title && movie.poster_path" alt="{{ movie.title }}" [lazyLoad]="movie.poster_path ? _globals.BASE_IMAGE_URL + movie.poster_path : _globals.NO_IMAGE_URL" />
+                    </div>
+                </ng-container>
+            </ng-container>
+        </div>
+        <div class="col-8 px-0">
+            <mat-card-content class="d-inline-block mb-0">
+                <div class="card-text" *ngIf="movie">
+                    <div>
+                        <h3 *ngIf="movie && movie && movie.title" class="title-card c-pr-25 mb-0 white truncate-2-line">
+                            {{ movie.title }}
+                        </h3>
+                        <div *ngIf="movie && movie.genres && (movie.genres.length > 0)" class="genre-position text-white bgc-c-yellow">
+                            <span class="text-genre">{{ movie.genres[0].name }}</span>
+                        </div>
+                        <div class="w-100">
+                            <div class="spinner-position">
+                                <div class="d-inline-block position-relative">
+                                    <mat-progress-spinner class="d-inline-block"
+                                        [diameter]="45"
+                                        [mode]="mode"
+                                        [value]="movie.vote_average*10">
+                                    </mat-progress-spinner>
+                                    <p class="pb-1 mb-0 white average-position">{{ movie.vote_average | number:'1.1-2' }}</p>
+                                </div>
+                                <div class="d-inline-block count-position">
+                                    <p class="soft-white mb-0">{{ movie.vote_count }}</p>
+                                    <p class="soft-white mb-0 vote-text">VOTOS</p>
+                                </div>
+                            </div>
+                            <mat-chip-list *ngIf="movie && movie.release_date" class="certification-position bgc-c-yellow">
+                                <mat-chip class="vote-position white">
+                                    <span class="text-chip">{{ movie.release_date | slice:0:4 }}</span>
+                                </mat-chip>
+                            </mat-chip-list>
+                        </div>
+                    </div>
+                </div>
+            </mat-card-content>
+        </div>
+    </div>
+</mat-card>
+
+<mat-card *ngIf="tvShow" class="c-mb-6" style="margin-top: 20px; margin-bottom: 12px;" (click)="goToTvShowDetail(tvShow)">
+    <div class="row mx-0 elements-height">
+        <div class="col-4 px-0 position-relative" *ngIf="tvShow">
+            <ng-container>
+                <ng-container>
+                    <div class="img-container">
+                        <img mat-card-image *ngIf="tvShow && tvShow.name && tvShow.poster_path" alt="{{ tvShow.name }}" [lazyLoad]="tvShow.poster_path ? _globals.BASE_IMAGE_URL + tvShow.poster_path : _globals.NO_IMAGE_URL" />
+                    </div>
+                </ng-container>
+            </ng-container>
+        </div>
+        <div class="col-8 px-0">
+            <mat-card-content class="d-inline-block mb-0">
+                <div class="card-text" *ngIf="tvShow">
+                    <div>
+                        <h3 *ngIf="tvShow && tvShow && tvShow.name" class="title-card c-pr-25 mb-0 white truncate-2-line">
+                            {{ tvShow.name }}
+                        </h3>
+                        <div *ngIf="tvShow && tvShow.genres && (tvShow.genres.length > 0)" class="genre-position text-white bgc-c-yellow">
+                            <span class="text-genre">{{ tvShow.genres[0].name }}</span>
+                        </div>
+                        <div class="w-100">
+                            <div class="spinner-position">
+                                <div class="d-inline-block position-relative">
+                                    <mat-progress-spinner class="d-inline-block"
+                                        [diameter]="45"
+                                        [mode]="mode"
+                                        [value]="tvShow.vote_average*10">
+                                    </mat-progress-spinner>
+                                    <p class="pb-1 mb-0 white average-position">{{ tvShow.vote_average | number:'1.1-2' }}</p>
+                                </div>
+                                <div class="d-inline-block count-position">
+                                    <p class="soft-white mb-0">{{ tvShow.vote_count }}</p>
+                                    <p class="soft-white mb-0 vote-text">VOTOS</p>
+                                </div>
+                            </div>
+                            <mat-chip-list *ngIf="tvShow.first_air_date" class="certification-position bgc-c-yellow">
+                                <mat-chip class="vote-position white">
+                                    <span class="text-chip">{{ tvShow.first_air_date | slice:0:4 }}</span>
+                                </mat-chip>
+                            </mat-chip-list>
+                        </div>
+                    </div>
+                </div>
+            </mat-card-content>
+        </div>
+    </div>
+</mat-card>

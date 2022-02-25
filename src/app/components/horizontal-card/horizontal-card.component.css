@@ -1,0 +1,188 @@
+.container-mat-card {
+  margin-top: 20px;
+  margin-bottom: 12px;
+}
+
+::ng-deep .mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: #F1B205 !important;
+}
+
+.mat-mini-fab {
+  box-shadow: 0 3px 5px -1px transparent, 0 6px 10px 0 transparent, 0 1px 18px 0 transparent !important;
+}
+
+::ng-deep .mat-card-content {
+  width: 100%;
+  position: relative;
+  background: #141414 !important;
+  border-radius: 0 10px 10px 0 !important;
+  min-height: 0 !important;
+}
+
+.elements-height {
+  height: 125px !important;
+}
+
+.title-card {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.vote-position {
+  position: absolute;
+  bottom: 5%;
+  background: rgba(61, 58, 47, 0.5) !important;
+}
+
+.average-position {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 15px;
+}
+
+.count-position {
+  position: relative;
+  bottom: 10px;
+  left: 5px;
+}
+
+.certification-position {
+  position: absolute;
+  bottom: 13px;
+  right: 60px;
+}
+
+.runtime-position {
+  position: absolute;
+  top: 20px;
+  right: 50px;
+  background-color: #F1B205 !important;
+}
+
+.spinner-position {
+  position: absolute;
+  bottom: 10px;
+}
+
+.vote-text {
+  font-size: 10px;
+  position: relative;
+  top: -2px;
+}
+
+.vote-icon {
+  font-size: 12px !important;
+  width: 16px;
+  padding-top: 6.5px;
+}
+
+.text-chip {
+  font-family: "Roboto" !important;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 11px !important;
+  line-height: 15px;
+  padding-top: 3px;
+}
+
+.text-genre {
+  font-family: "Roboto" !important;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 11px !important;
+  position: relative;
+  top: 5px;
+}
+
+.genre-position {
+  position: absolute;
+  top: -5px !important;
+  right: 25px !important;
+  width: auto;
+  height: 25px;
+  border-radius: 20px;
+  padding-left: 8px;
+  padding-right: 8px;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+}
+
+.mat-chip {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+:host ::ng-deep .mat-card-content {
+  font-size: 12px !important;
+  line-height: 15px !important;
+}
+
+img {
+  background-size: cover;
+  width: auto;
+  height: inherit;
+  margin: 0 !important;
+  border-radius: 10px 0 0 10px !important;
+}
+
+.img-container {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  height: 100%;
+  width: 100%;
+  margin: 0 !important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 10px 0 0 10px !important;
+  background-color: #141414 !important;
+  background: linear-gradient(0deg, rgba(61, 58, 47, 0.3) 0%, rgba(61, 58, 47, 0) 50%);
+}
+
+.img-container:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 10px 0 0 10px !important;
+}
+
+mat-card-content {
+  width: 100%;
+  height: 100% !important;
+  position: relative;
+  background: #141414 !important;
+  border-radius: 0 10px 10px 0 !important;
+  padding-top: 0;
+  min-height: 110px;
+}
+
+.card-text {
+  padding: 25px 10px 12px 0;
+  position: relative;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-radius: 0 10px 10px 0 !important;
+  position: absolute !important;
+  background: linear-gradient(0deg, rgba(61, 58, 47, 0.3) 0%, rgba(61, 58, 47, 0) 50%);
+}
+
+mat-card {
+  padding: 0;
+  box-shadow: 0px 1px 4px rgba(92, 88, 73, 0.5) !important;
+  border-radius: 10px !important;
+  cursor: pointer;
+}
+
+mat-card.remove-box-shadow {
+  box-shadow: none !important;
+}

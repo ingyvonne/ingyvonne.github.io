@@ -14,13 +14,13 @@
             </button>
         </div>
         <div class="col-12 text-white text-center" *ngIf="selectMovies && allMovies && (allMovies.length > 0)">
-            SHOW ALL MOVIES
             <div *ngFor="let movie of allMovies">
+                <app-horizontal-card [movie]="movie"></app-horizontal-card>
             </div>
         </div>
         <div class="col-12 text-white text-center" *ngIf="selectTvShows && allTvShows && (allTvShows.length > 0)">
-            SHOW ALL TV SHOWS
             <div *ngFor="let tvShow of allTvShows">
+                <app-horizontal-card [tvShow]="tvShow"></app-horizontal-card>
             </div>
         </div>
     </div>
