@@ -1,0 +1,101 @@
+.c-back-position i {
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    margin-top: -10px;
+}
+
+.c-back-position {
+    position: absolute;
+    top: 18px!important;
+    left: 15px!important;
+    width: 30px;
+    height: 30px;
+    background-color: transparent!important;
+    z-index: 2000;
+}
+
+.poster-img {
+    border-radius: 20px;
+}
+
+.header-poster {
+    height: 100% !important;
+}
+
+.header-first-title {
+    font-weight: bold;
+    font-size: 20px;
+    font-family: "Roboto" !important;
+}
+
+.average-position {
+    position: absolute;
+    bottom: 25px;
+    left: 1px;
+}
+
+.date-position {
+    position: absolute;
+    bottom: 140px;
+    left: 5px;
+}
+
+.time-position {
+    position: absolute;
+    top: 90px;
+    left: 0px;
+}
+
+.text-distance {
+    font-family: "Roboto" !important;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px!important;
+    line-height: 15px;
+    padding-top: 3px;
+}
+
+.certification-position {
+    position: absolute;
+    top: 25px!important;
+    right: 25px!important;
+    width: auto;
+    height: 30px;
+    border-radius: 20px;
+    padding-left: 8px;
+    padding-right: 8px;
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),0px 6px 10px 0px rgba(0, 0, 0, 0.14),0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+}
+
+.text-chip {
+    font-family: "Roboto" !important;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px!important;
+    line-height: 15px;
+    padding-top: 3px;
+    white-space: nowrap;
+}
+
+.text-format {
+    font-family: "Roboto" !important;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px !important;
+}
+
+.rotate-90 {
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+.icon-chip {
+    font-size: 13px !important;
+    width: 16px;
+    padding-top: 6.5px;
+    display: inline;
+    margin-right: 3px;
+}

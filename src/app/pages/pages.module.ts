@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
-
+import { PipesModule } from '../pipes/pipes.module';
 
 
 @NgModule({
@@ -14,6 +14,7 @@ import { LazyLoadImageModule } from 'ng-lazyload-image';
     MatIconModule,
     MatButtonModule,
     RouterModule,
+    PipesModule,
     LazyLoadImageModule
   ]
 })

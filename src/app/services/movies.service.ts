@@ -6,7 +6,8 @@ import { GenreResponseInterface } from '../interfaces/genre-interface';
 import { MovieInterface, MovieResponseInterface } from '../interfaces/movie-list-interface';
 import { TvShowResponseInterface } from '../interfaces/tv-show-list-interface';
 import { map, catchError } from 'rxjs/operators';
-
+import { MovieDetailInterface } from '../interfaces/movie-detail-interface';
+import { TvShowDetailInterface } from '../interfaces/tv-show-detail-interface';
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +28,7 @@ export class MoviesService {
   getPopularMovies(): Observable<MovieInterface[]> {
     let params = this.getParams();
     params = params.append('page', '1');
-    
+
     return this._http.get<MovieResponseInterface>(`${this._globals.BASE_URL}/movie/popular`,{params})
     .pipe(
       map(resp => resp.results)
@@ -51,6 +52,26 @@ export class MoviesService {
     const params = this.getParams();
 
     return this._http.get<GenreResponseInterface>(`${this._globals.BASE_URL}/genre/tv/list`,{params});
+  }
+  
+  getMovieDetail(id: string): Observable<MovieDetailInterface | null> {
+    let params = this.getParams();
+    params = params.append('append_to_response', 'release_dates,credits')
+
+    return this._http.get<MovieDetailInterface>(`${this._globals.BASE_URL}/movie/${id}`, {params})
+    .pipe(
+      catchError(err => of(null))
+    );
+  }
+
+  getTvShowDetail(id: string): Observable<TvShowDetailInterface | null> {
+    let params = this.getParams();
+    params = params.append('append_to_response', 'content_ratings,credits')
+
+    return this._http.get<TvShowDetailInterface>(`${this._globals.BASE_URL}/tv/${id}`, {params})
+    .pipe(
+      catchError(err => of(null))
+    );
   }
 
 }
