@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class MovieRunTimePipe implements PipeTransform {
 
   transform(runtime: number): string {
-    const hour = (runtime / 60).toFixed();
+    const hour = Math.trunc(runtime / 60);
     const minutes = (runtime % 60);
     if (minutes < 10) {
       return hour + 'h 0' + minutes + 'm';

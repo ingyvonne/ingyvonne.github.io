@@ -9,7 +9,7 @@ import { TvShowInterface } from 'src/app/interfaces/tv-show-list-interface';
 @Component({
   selector: 'app-horizontal-card',
   templateUrl: './horizontal-card.component.html',
-  styleUrls: ['./horizontal-card.component.css']
+  styleUrls: ['./horizontal-card.component.css', '../card-styles.css']
 })
 export class HorizontalCardComponent implements OnInit {
   @Input() public movie!: MovieInterface;
@@ -25,12 +25,10 @@ export class HorizontalCardComponent implements OnInit {
   ngOnInit(): void { }
 
   goToMovieDetail(movie: MovieInterface) {
-    console.log(movie);
     this._router.navigate(['/movie', movie.id]);
   }
 
   goToTvShowDetail(tvShow: TvShowInterface) {
-    console.log(tvShow);
     this._router.navigate(['/tv-show', tvShow.id]);
   }
 

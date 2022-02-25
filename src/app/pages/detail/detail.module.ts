@@ -5,7 +5,8 @@ import { DetailRoutingModule } from './detail-routing.module';
 import { DetailComponent } from './detail.component';
 import { PagesModule } from '../pages.module';
 import { MatChipsModule } from '@angular/material/chips';
-import { HorizontalCardModule } from 'src/app/components/horizontal-card/horizontal-card.module';
+import { HorizontalCardModule } from 'src/app/components/cards/horizontal-card/horizontal-card.module';
+import { CastingCardModule } from 'src/app/components/cards/casting-card/casting-card.module';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { HorizontalCardModule } from 'src/app/components/horizontal-card/horizon
     DetailRoutingModule,
     PagesModule,
     HorizontalCardModule,
+    CastingCardModule,
     MatChipsModule
   ]
 })

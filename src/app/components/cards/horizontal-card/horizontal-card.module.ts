@@ -5,7 +5,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { PipesModule } from 'src/app/pipes/pipes.module';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatCardModule } from '@angular/material/card';
-import { ComponentsModule } from '../components.module';
+import { ComponentsModule } from '../../components.module';
 
 
 

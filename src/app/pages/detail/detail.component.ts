@@ -34,7 +34,6 @@ export class DetailComponent implements OnInit {
     const id = this._activatedRoute.snapshot.params.id;
 
     const pathname = window.location.pathname;
-    console.log('window.location.pathname', window.location.pathname);
     if (pathname.includes('movie')) {
       this.getMovieDetail(id);
       this.type = 'movie';
@@ -101,8 +100,14 @@ export class DetailComponent implements OnInit {
   }
 
   getCasting(element: MovieDetailInterface | TvShowDetailInterface) {
+    this.casting = [];
     if (element && element.credits && (element.credits['cast'])) {
-      this.casting = element.credits['cast'];
+      const result = element.credits['cast'];
+      result.forEach(cast => {
+        if (cast.profile_path) {
+          this.casting.push(cast);
+        }
+      });
     }
   }
 

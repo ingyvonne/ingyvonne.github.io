@@ -1,13 +1,13 @@
-<mat-card *ngIf="movie" class="c-mb-6" style="margin-top: 20px; margin-bottom: 12px;" (click)="goToMovieDetail(movie)">
+<mat-card *ngIf="movie" class="c-mb-6 container-mat-card" (click)="goToMovieDetail(movie)">
     <div class="row mx-0 elements-height">
         <div class="col-4 px-0 position-relative" *ngIf="movie">
-            <ng-container>
-                <ng-container>
+            <!-- <ng-container>
+                <ng-container> -->
                     <div class="img-container">
-                        <img mat-card-image *ngIf="movie && movie.title && movie.poster_path" alt="{{ movie.title }}" [lazyLoad]="movie.poster_path ? _globals.BASE_IMAGE_URL + movie.poster_path : _globals.NO_IMAGE_URL" />
+                        <img mat-card-image alt="{{ movie.title ? movie.title : '' }}" [lazyLoad]="movie.poster_path ? _globals.BASE_IMAGE_URL + movie.poster_path : _globals.NO_IMAGE_URL" />
                     </div>
-                </ng-container>
-            </ng-container>
+                <!-- </ng-container>
+            </ng-container> -->
         </div>
         <div class="col-8 px-0">
             <mat-card-content class="d-inline-block mb-0">
@@ -47,16 +47,16 @@
     </div>
 </mat-card>
 
-<mat-card *ngIf="tvShow" class="c-mb-6" style="margin-top: 20px; margin-bottom: 12px;" (click)="goToTvShowDetail(tvShow)">
+<mat-card *ngIf="tvShow" class="c-mb-6 container-mat-card" (click)="goToTvShowDetail(tvShow)">
     <div class="row mx-0 elements-height">
         <div class="col-4 px-0 position-relative" *ngIf="tvShow">
-            <ng-container>
-                <ng-container>
+            <!-- <ng-container>
+                <ng-container> -->
                     <div class="img-container">
-                        <img mat-card-image *ngIf="tvShow && tvShow.name && tvShow.poster_path" alt="{{ tvShow.name }}" [lazyLoad]="tvShow.poster_path ? _globals.BASE_IMAGE_URL + tvShow.poster_path : _globals.NO_IMAGE_URL" />
+                        <img mat-card-image alt="{{ tvShow.name ? tvShow.name : '' }}" [lazyLoad]="tvShow.poster_path ? _globals.BASE_IMAGE_URL + tvShow.poster_path : _globals.NO_IMAGE_URL" />
                     </div>
-                </ng-container>
-            </ng-container>
+                <!-- </ng-container>
+            </ng-container> -->
         </div>
         <div class="col-8 px-0">
             <mat-card-content class="d-inline-block mb-0">
