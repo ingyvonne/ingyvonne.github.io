@@ -1,4 +1,4 @@
-<section *ngIf="(type === 'movie') && movie">
+<section *ngIf="(type === 'movie') && movie" class="c-mb-6">
     <section class="container-fluid container-width">
         <div class="row">
             <div class="col-6">
@@ -25,6 +25,7 @@
             <div class="col-12 px-0" style="height: 400px;">
                 <div class="img-container">
                     <img class="w-100" alt="{{ movie.title ? movie.title : '' }}"
+                        [defaultImage]="_globals.NO_IMAGE_URL"
                         [lazyLoad]="movie.backdrop_path ? _globals.BASE_ORIGINAL_IMAGE_URL + movie.backdrop_path : _globals.NO_IMAGE_URL" />
                 </div>
             </div>
@@ -54,6 +55,7 @@
             </div>
             <div class="col-10">
                 <img class="w-100 poster-img" alt="{{ movie.title ? movie.title : '' }}"
+                    [defaultImage]="_globals.NO_IMAGE_URL"
                     [lazyLoad]="movie.poster_path ? _globals.BASE_IMAGE_URL + movie.poster_path : _globals.NO_IMAGE_URL" />
             </div>
         </div>
@@ -82,6 +84,7 @@
             </div>
             <div class="d-none d-md-flex col-md-3 position-relative">
                 <img class="w-100 thumb-img animate__animated animate__flipInX" alt="{{ movie.title ? movie.title : '' }}"
+                    [defaultImage]="_globals.NO_IMAGE_URL"
                     [lazyLoad]="movie.poster_path ? _globals.BASE_IMAGE_URL + movie.poster_path : _globals.NO_IMAGE_URL" />
             </div>
             <div class="col-12 col-md-6">
@@ -121,7 +124,7 @@
         </div>
     </section>
     <section class="container-fluid container-width mb-5">
-        <div class="row">
+        <div class="row mx-0">
             <div class="col-12 text-white text-format mb-3">
                 <div class="mb-2">
                     <b>Casting</b>
@@ -137,7 +140,7 @@
         </div>
     </section>
 </section>
-<section *ngIf="(type === 'tvShow') && tvShow">
+<section *ngIf="(type === 'tvShow') && tvShow" class="c-mb-6">
     <section class="container-fluid container-width">
         <div class="row">
             <div class="col-6">
@@ -164,6 +167,7 @@
             <div class="col-12 px-0">
                 <div class="img-container">
                     <img class="w-100" alt="{{ tvShow.name ? tvShow.name : '' }}"
+                        [defaultImage]="_globals.NO_IMAGE_URL"
                         [lazyLoad]="tvShow.backdrop_path ? _globals.BASE_ORIGINAL_IMAGE_URL + tvShow.backdrop_path : _globals.NO_IMAGE_URL" />
                 </div>
             </div>
@@ -193,6 +197,7 @@
             </div>
             <div class="col-10">
                 <img class="w-100 poster-img" alt="{{ tvShow.name ? tvShow.name : '' }}"
+                    [defaultImage]="_globals.NO_IMAGE_URL"
                     [lazyLoad]="tvShow.poster_path ? _globals.BASE_IMAGE_URL + tvShow.poster_path : _globals.NO_IMAGE_URL" />
             </div>
         </div>
@@ -221,6 +226,7 @@
             </div>
             <div class="d-none d-md-flex col-md-3 position-relative">
                 <img class="w-100 thumb-img" alt="{{ tvShow.name ? tvShow.name : '' }}"
+                    [defaultImage]="_globals.NO_IMAGE_URL"
                     [lazyLoad]="tvShow.poster_path ? _globals.BASE_IMAGE_URL + tvShow.poster_path : _globals.NO_IMAGE_URL" />
             </div>
             <div class="col-12 col-md-6">
@@ -272,7 +278,7 @@
         </div>
     </section>
     <section class="container-fluid container-width mb-5">
-        <div class="row">
+        <div class="row mx-0">
             <div class="col-12 text-white text-format mb-3">
                 <div class="mb-2">
                     <b>Casting</b>

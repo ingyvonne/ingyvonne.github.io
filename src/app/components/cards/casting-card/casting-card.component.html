@@ -2,6 +2,7 @@
     <div class="cast-round position-relative">
         <div class="img-container">
             <img mat-card-image *ngIf="cast.profile_path" alt="{{ cast.name ? cast.name : '' }}"
+                [defaultImage]="_globals.NO_IMAGE_URL"
                 [lazyLoad]="cast.profile_path ? (_globals.BASE_THUMBNAIL_URL + cast.profile_path) : _globals.NO_IMAGE_URL" />
         </div>
     </div>

@@ -4,7 +4,7 @@ import { Observable, of } from 'rxjs';
 import { Globals } from '../config/Globals';
 import { GenreResponseInterface } from '../interfaces/genre-interface';
 import { MovieInterface, MovieResponseInterface } from '../interfaces/movie-list-interface';
-import { TvShowResponseInterface } from '../interfaces/tv-show-list-interface';
+import { TvShowInterface, TvShowResponseInterface } from '../interfaces/tv-show-list-interface';
 import { map, catchError } from 'rxjs/operators';
 import { MovieDetailInterface } from '../interfaces/movie-detail-interface';
 import { TvShowDetailInterface } from '../interfaces/tv-show-detail-interface';
@@ -35,11 +35,14 @@ export class MoviesService {
     );
   }
 
-  getPopularTvShows(): Observable<TvShowResponseInterface> {
+  getPopularTvShows(): Observable<TvShowInterface[]> {
     let params = this.getParams();
     params = params.append('page', '1');
 
-    return this._http.get<TvShowResponseInterface>(`${this._globals.BASE_URL}/tv/popular`,{params});
+    return this._http.get<TvShowResponseInterface>(`${this._globals.BASE_URL}/tv/popular`,{params})
+    .pipe(
+      map(resp => resp.results)
+    );
   }
 
   getMovieGenres(): Observable<GenreResponseInterface> {

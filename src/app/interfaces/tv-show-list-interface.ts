@@ -8,10 +8,12 @@ export interface TvShowResponseInterface {
 }
 
 export interface TvShowInterface {
+    adult: boolean;
     backdrop_path?: string;
     first_air_date: string;
     genre_ids: number[];
     genres?: GenreInterface[];
+    route?: string;
     id: number;
     name: string;
     origin_country: string[];

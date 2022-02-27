@@ -19,17 +19,8 @@ export class HorizontalCardComponent implements OnInit {
 
     constructor(
     public _globals: Globals,
-    private _router: Router
   ) { }
 
   ngOnInit(): void { }
-
-  goToMovieDetail(movie: MovieInterface) {
-    this._router.navigate(['/movie', movie.id]);
-  }
-
-  goToTvShowDetail(tvShow: TvShowInterface) {
-    this._router.navigate(['/tv-show', tvShow.id]);
-  }
 
 }

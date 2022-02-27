@@ -1,7 +1,6 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Globals } from 'src/app/config/Globals';
-import { SwiperConfigInterface, SwiperDirective } from 'ngx-swiper-wrapper';
-import { CastInterface } from 'src/app/interfaces/credit-interface';
+import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { MovieInterface } from 'src/app/interfaces/movie-list-interface';
 import { TvShowInterface } from 'src/app/interfaces/tv-show-list-interface';
 

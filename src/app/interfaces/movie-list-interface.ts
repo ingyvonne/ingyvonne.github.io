@@ -12,6 +12,7 @@ export interface MovieInterface {
     backdrop_path: string;
     genre_ids: number[];
     genres?: GenreInterface[];
+    route?: string;
     certification?: string,
     runtime?: number;
     id: number;

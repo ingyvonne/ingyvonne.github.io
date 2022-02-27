@@ -43,12 +43,14 @@ export class HomeComponent implements OnInit {
     ]).subscribe( ([allMovies, allMovieGenres, allTvShows, allTvShowGenres]) => {
       this.allMovies = allMovies;
       this.allMovieGenres = allMovieGenres.genres;
-      this.allTvShows = allTvShows.results;
+      this.allTvShows = allTvShows;
       this.allTvShowGenres = allTvShowGenres.genres;
       this.allMovies.forEach(movie => {
+        this.createRoutingById(movie, 'movie');
         this.getGenresForMovie(movie, this.allMovieGenres);
       });
       this.allTvShows.forEach(tvShow => {
+        this.createRoutingById(tvShow, 'tvShow');
         this.getGenresForTvShow(tvShow, this.allTvShowGenres);
       });
     });
@@ -86,6 +88,18 @@ export class HomeComponent implements OnInit {
       this.selectTvShows = true;
       this.selectMovies = false;
     }
+  }
+
+  createRoutingById(element: MovieInterface | TvShowInterface, type: string) {
+      let path;
+      if (type === 'movie') {
+        path = 'movie/:id';
+        element.route = '/' + path.replace(':id', element.id.toString());
+      } else if (type === 'tvShow') {
+        path = 'tv-show/:id';
+        element.route = '/' + path.replace(':id', element.id.toString());
+      }
+    return element;
   }
 
 }

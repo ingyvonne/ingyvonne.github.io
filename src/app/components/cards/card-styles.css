@@ -12,6 +12,9 @@
     background-position: center;
     background-color: #141414 !important;
     background: linear-gradient(0deg, rgba(61, 58, 47, 0.3) 0%, rgba(61, 58, 47, 0) 50%);
+    overflow: hidden;
+    height: 100%;
+    background-position: center;
 }
 
 .img-container:before {
@@ -26,4 +29,6 @@
 img {
     background-size: cover;
     margin: 0 !important;
+    width: 100%;
+    height: auto;
 }

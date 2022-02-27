@@ -7,6 +7,10 @@ html, body {
     font-family: "Roboto", "Helvetica Neue", sans-serif;
 }
 
+.c-mb-6 {
+    margin-bottom: 4rem !important;
+}
+
 .bgc-black {
     background-color: #141414!important;
 }

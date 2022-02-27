@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { Globals } from 'src/app/config/Globals';
-import { SwiperConfigInterface, SwiperDirective } from 'ngx-swiper-wrapper';
+import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { CastInterface } from 'src/app/interfaces/credit-interface';
 
 
@@ -31,12 +31,6 @@ export class CastingSwiperComponent implements OnInit {
       observer: true,
       slidesOffsetAfter: 0,
       slidesOffsetBefore: 0,
-      // pagination: {
-      //   el: '.cpage',
-      //   clickable: true,
-      //   type: 'bullets',
-      // },
-      // pagination: true,
       navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
