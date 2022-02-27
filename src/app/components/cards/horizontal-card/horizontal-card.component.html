@@ -35,7 +35,7 @@
                                 </div>
                             </div>
                             <mat-chip-list *ngIf="movie && movie.release_date" class="certification-position bgc-c-yellow">
-                                <mat-chip class="vote-position white">
+                                <mat-chip class="cert-position white">
                                     <span class="text-chip">{{ movie.release_date | slice:0:4 }}</span>
                                 </mat-chip>
                             </mat-chip-list>
@@ -84,7 +84,7 @@
                                 </div>
                             </div>
                             <mat-chip-list *ngIf="tvShow.first_air_date" class="certification-position bgc-c-yellow">
-                                <mat-chip class="vote-position white">
+                                <mat-chip class="cert-position white">
                                     <span class="text-chip">{{ tvShow.first_air_date | slice:0:4 }}</span>
                                 </mat-chip>
                             </mat-chip-list>

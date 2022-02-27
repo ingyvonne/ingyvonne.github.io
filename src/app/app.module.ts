@@ -10,6 +10,14 @@ import { Globals } from './config/Globals';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from '@angular/router';
+import { SwiperModule } from 'ngx-swiper-wrapper';
+import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
+import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
+
+const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
+  direction: 'horizontal',
+  slidesPerView: 'auto'
+};
 
 @NgModule({
   declarations: [
@@ -17,6 +25,7 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     BrowserModule,
+    SwiperModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -30,7 +39,11 @@ import { RouterModule } from '@angular/router';
     })
   ],
   providers: [
-    Globals
+    Globals,
+    { 
+      provide: SWIPER_CONFIG, 
+      useValue: DEFAULT_SWIPER_CONFIG
+    },
   ],
   bootstrap: [AppComponent]
 })

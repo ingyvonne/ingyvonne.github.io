@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
   }
 
   initData() {
-    combineLatest([
+    combineLatest ([
       this._moviesService.getPopularMovies(),
       this._moviesService.getMovieGenres(),
       this._moviesService.getPopularTvShows(),

@@ -1,4 +1,5 @@
 import { CreditInterface } from "./credit-interface";
+import { MovieResponseInterface } from "./movie-list-interface";
 
 export interface MovieDetailInterface {
     adult: boolean;
@@ -29,6 +30,7 @@ export interface MovieDetailInterface {
     vote_count: number;
     release_dates: Releasedates;
     credits: CreditInterface;
+    similar: MovieResponseInterface;
 }
 
 export interface GenreResponseInterface {

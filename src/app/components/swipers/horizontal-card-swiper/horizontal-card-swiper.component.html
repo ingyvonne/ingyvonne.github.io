@@ -1,0 +1,14 @@
+<div *ngIf="similarMoviesCards && (similarMoviesCards.length > 0)" class="position-relative swiper-parent-div">
+    <swiper (init)="showCards()" [config]="horizontalConfig">
+        <div *ngFor="let movie of similarMoviesCards">
+            <app-horizontal-card *ngIf="!loading" [movie]="movie"></app-horizontal-card>
+        </div>
+    </swiper>
+</div>
+<div *ngIf="similarTvShowsCards && (similarTvShowsCards.length > 0)" class="position-relative swiper-parent-div">
+    <swiper (init)="showCards()" [config]="horizontalConfig">
+        <div *ngFor="let tvShow of similarTvShowsCards">
+            <app-horizontal-card *ngIf="!loading" [tvShow]="tvShow"></app-horizontal-card>
+        </div>
+    </swiper>
+</div>

@@ -1,0 +1,41 @@
+
+.row {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    padding: 0 6px !important;
+}
+
+.col-card {
+    padding-right: 8px !important;
+    padding-left: 8px !important;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .row {
+        padding-left: 10px !important;
+        padding-right: 13.4% !important;
+    }
+}
+
+.cpage {
+    width:100%;
+    background:red;
+    display:flex;
+    justify-content: flex-between;
+    align-items: center;
+    height:40px;
+    /* border-radius:3px; */
+}
+
+
+@media (max-width: 767px) {
+    .col-card {
+        padding-right: 6px !important;
+        padding-left: 6px !important;
+    }
+
+    .row {
+        padding-left: 11px !important;
+        padding-right: 8.2% !important;
+    }
+}

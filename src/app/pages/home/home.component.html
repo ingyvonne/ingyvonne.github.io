@@ -1,27 +1,27 @@
 <app-navbar></app-navbar>
-<section class="container">
+<section class="container-fluid container-width">
     <div class="row">
-        <div class="col-12 my-2">
+        <div class="col-12 my-2 container-buttons">
             <button mat-stroked-button class="w-100 container-btn">
                 <div class="row margin-container-btn">
-                    <div class="col-6" [ngClass]="{'category-btn': selectMovies}" (click)="setType('movie')">
+                    <div class="col-6 animate__animated animate__fadeIn" [ngClass]="{'category-btn': selectMovies}" (click)="setType('movie')">
                         <p class="mb-0 d-inline-block category-btn-text pt-0">Películas</p>
                     </div>
-                    <div class="col-6" [ngClass]="{'category-btn': selectTvShows}" (click)="setType('tvShow')">
+                    <div class="col-6 animate__animated animate__fadeIn" [ngClass]="{'category-btn': selectTvShows}" (click)="setType('tvShow')">
                         <p class="mb-0 d-inline-block category-btn-text pt-0">Series</p>
                     </div>
                 </div>
             </button>
         </div>
-        <div class="col-12 text-white" *ngIf="selectMovies && allMovies && (allMovies.length > 0)">
-            <div *ngFor="let movie of allMovies">
-                <app-horizontal-card [movie]="movie"></app-horizontal-card>
-            </div>
+    </div>
+    <div class="row py-3" *ngIf="selectMovies && allMovies && (allMovies.length > 0)">
+        <div class="col-md-4 col-sm-6 col-12 px-2 pb-md-2 animate__animated animate__fadeIn" *ngFor="let movie of allMovies">
+            <app-horizontal-card [movie]="movie"></app-horizontal-card>
         </div>
-        <div class="col-12 text-white" *ngIf="selectTvShows && allTvShows && (allTvShows.length > 0)">
-            <div *ngFor="let tvShow of allTvShows">
-                <app-horizontal-card [tvShow]="tvShow"></app-horizontal-card>
-            </div>
+    </div>
+    <div class="row py-3" *ngIf="selectTvShows && allTvShows && (allTvShows.length > 0)">
+        <div class="col-md-4 col-sm-6 col-12 px-2 pb-md-2 animate__animated animate__fadeIn" *ngFor="let tvShow of allTvShows">
+            <app-horizontal-card [tvShow]="tvShow"></app-horizontal-card>
         </div>
     </div>
 </section>

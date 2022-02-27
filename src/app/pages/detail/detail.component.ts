@@ -4,8 +4,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { combineLatest } from 'rxjs';
 import { Globals } from 'src/app/config/Globals';
 import { CastInterface } from 'src/app/interfaces/credit-interface';
-import { MovieDetailInterface } from 'src/app/interfaces/movie-detail-interface';
+import { GenreInterface, MovieDetailInterface } from 'src/app/interfaces/movie-detail-interface';
+import { MovieInterface } from 'src/app/interfaces/movie-list-interface';
 import { TvShowDetailInterface } from 'src/app/interfaces/tv-show-detail-interface';
+import { TvShowInterface } from 'src/app/interfaces/tv-show-list-interface';
 import { MoviesService } from 'src/app/services/movies.service';
 
 @Component({
@@ -22,8 +24,12 @@ export class DetailComponent implements OnInit {
   public director!: string;
   public creator!: string;
   public certification!: string;
+  public similarMovies!: MovieInterface[];
+  public similarTvShows!: TvShowInterface[];
   public expandedOverview = false;
-
+  public allMovieGenres: GenreInterface[] = [];
+  public allTvShowGenres: GenreInterface[] = [];
+  
   constructor(
     private _activatedRoute: ActivatedRoute,
     private _moviesService: MoviesService,
@@ -53,32 +59,79 @@ export class DetailComponent implements OnInit {
   }
 
   getTvShowDetail(id: string) {
-    this._moviesService.getTvShowDetail(id)
-    .subscribe(resp => {
-      if (!resp) {
+    combineLatest([
+      this._moviesService.getTvShowDetail(id),
+      this._moviesService.getTvShowGenres()
+    ])
+    .subscribe(([detail, allTvShowGenres]) => {
+      if (!detail) {
         this._router.navigate(['/']);
         return;
       }
-      this.tvShow = resp;
+      this.tvShow = detail;
+      this.allTvShowGenres = allTvShowGenres.genres;
       this.getCreator(this.tvShow);
       this.getCasting(this.tvShow);
       this.getTvShowCertification(this.tvShow);
+      this.getSimilarTvShows(this.tvShow, this.allTvShowGenres);
     });
   }
 
   getMovieDetail(id: string) {
-    this._moviesService.getMovieDetail(id)
-    .subscribe(resp => {
-      if (!resp) {
+    combineLatest([
+      this._moviesService.getMovieDetail(id),
+      this._moviesService.getMovieGenres()
+    ])
+    .subscribe(([detail, allMovieGenres]) => {
+      if (!detail) {
         this._router.navigate(['/']);
         return;
       }
-      this.movie = resp;
-      this.getDirector(resp);
+      this.movie = detail;
+      this.allMovieGenres = allMovieGenres.genres;
+      this.getDirector(this.movie);
       this.getCasting(this.movie);
       this.getMovieCertification(this.movie);
-      
+      this.getSimilarMovies(this.movie, this.allMovieGenres);
     });
+  }
+
+  getSimilarMovies(element: MovieDetailInterface, genresArray: GenreInterface[]) {
+    let movies: MovieInterface[] = [];
+    let moviesGenresArray: GenreInterface[] = [];
+    let genreFind;
+    if (element && element.similar && (element.similar['results'])) {
+      movies = element.similar['results'];
+      movies.forEach(movie => {
+        movie.genre_ids.forEach(genreId => {
+          if (genresArray.some( genre => (genre.id === genreId))) {
+            genreFind = genresArray.filter(genre => (genre.id === genreId));
+            moviesGenresArray.push(genreFind[0]);
+          }
+        });
+        movie.genres = moviesGenresArray;
+      });
+      this.similarMovies = movies;
+    }
+  }
+
+  getSimilarTvShows(element: TvShowDetailInterface, genresArray: GenreInterface[]) {
+    let tvShows: TvShowInterface[] = [];
+    let tvShowGenresArray: GenreInterface[] = [];
+    let genreFind;
+    if (element && element.similar && (element.similar['results'])) {
+      tvShows = element.similar['results'];
+      tvShows.forEach(tvShow => {
+        tvShow.genre_ids.forEach(genreId => {
+          if (genresArray.some( genre => (genre.id === genreId))) {
+            genreFind = genresArray.filter(genre => (genre.id === genreId));
+            tvShowGenresArray.push(genreFind[0]);
+          }
+        });
+        tvShow.genres = tvShowGenresArray;
+      });
+      this.similarTvShows = tvShows;
+    }
   }
 
   getCreator(element: TvShowDetailInterface) {

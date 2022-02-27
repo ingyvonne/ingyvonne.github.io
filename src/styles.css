@@ -81,3 +81,13 @@ hr{
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
 }
+
+@media (min-width: 1024px) {
+    .container-fluid {
+        padding-left: 50px !important;
+        padding-right: 50px !important;
+    }
+    .container-width {
+        max-width: 1240px !important;
+    }
+}

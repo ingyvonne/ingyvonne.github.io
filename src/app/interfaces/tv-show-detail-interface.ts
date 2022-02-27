@@ -1,4 +1,5 @@
 import { CreditInterface } from "./credit-interface";
+import { TvShowResponseInterface } from "./tv-show-list-interface";
 
 export interface TvShowDetailInterface {
     adult: boolean;
@@ -35,6 +36,7 @@ export interface TvShowDetailInterface {
     vote_count: number;
     content_ratings: Contentratings;
     credits: CreditInterface;
+    similar: TvShowResponseInterface;
 }
 
 export interface Contentratings {

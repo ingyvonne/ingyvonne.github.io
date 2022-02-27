@@ -1,0 +1,7 @@
+<div class="position-relative swiper-parent-div">
+    <swiper (init)="showCards()" [config]="horizontalConfig">
+        <div *ngFor="let cast of castingCards">
+            <app-casting-card *ngIf="!loading" [cast]="cast"></app-casting-card>
+        </div>
+    </swiper>
+</div>

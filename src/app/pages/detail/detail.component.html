@@ -1,9 +1,13 @@
 <section *ngIf="(type === 'movie') && movie">
-    <section class="container-fluid">
+    <section class="container-fluid container-width">
         <div class="row">
             <div class="col-6">
-                <button mat-mini-fab class="c-back-position" (click)="goBack()">
-                    <i class="material-icons">arrow_back</i>
+                <button mat-mini-fab class="c-back-position d-inline-block d-md-none" (click)="goBack()">
+                    <i class="material-icons text-white">arrow_back</i>
+                </button>
+                <button mat-button class="c-back-position d-none d-md-inline-block" (click)="goBack()">
+                    <i class="material-icons text-white">arrow_back</i>
+                    <span class="text-white c-back-text">Volver</span>
                 </button>
             </div>
             <div class="col-6">
@@ -16,8 +20,18 @@
             </div>
         </div>
     </section>
-    <section class="container-fluid mb-5">
-        <div class="row" style="padding-top: 12px;">
+    <section class="w-100 mb-5 mb-md-1 d-none d-md-block">
+        <div class="row mx-0">
+            <div class="col-12 px-0" style="height: 400px;">
+                <div class="img-container">
+                    <img class="w-100" alt="{{ movie.title ? movie.title : '' }}"
+                        [lazyLoad]="movie.backdrop_path ? _globals.BASE_ORIGINAL_IMAGE_URL + movie.backdrop_path : _globals.NO_IMAGE_URL" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container-fluid container-width d-block d-md-none">
+        <div class="row c-pt-12">
             <div class="col-2 position-relative">
                 <div class="rotate-90 time-position">
                     <div class="d-inline" *ngIf="movie && movie.runtime">
@@ -42,60 +56,97 @@
                 <img class="w-100 poster-img" alt="{{ movie.title ? movie.title : '' }}"
                     [lazyLoad]="movie.poster_path ? _globals.BASE_IMAGE_URL + movie.poster_path : _globals.NO_IMAGE_URL" />
             </div>
-            <div class="col-12 mt-4" *ngIf="movie && movie.title">
-                <p class="white header-first-title mb-0">{{ movie.title }}</p>
-            </div>
-            <div class="col-12 mb-2" *ngIf="movie && movie.genres">
-                <div class="d-inline soft-white" *ngFor="let genre of movie.genres; last as isLast">
-                    <span class="text-format">{{ genre.name }}</span>
-                    <span class="px-1" *ngIf="!isLast">·</span>
+        </div>
+    </section>
+    <section class="container-fluid container-width mb-3 mb-md-0">
+        <div class="row">
+            <div class="d-none d-md-flex offset-md-1 col-md-1 position-relative">
+                <div class="rotate-90 time-position">
+                    <div class="d-inline" *ngIf="movie && movie.runtime">
+                        <mat-icon class="icon-chip c-yellow">schedule</mat-icon>
+                        <span class="text-chip text-white">{{ movie.runtime | movieRunTime }}</span>
+                    </div>
+                </div>
+                <div class="rotate-90 date-position">
+                    <div class="d-inline" *ngIf="movie && movie.release_date">
+                        <mat-icon class="icon-chip c-yellow">calendar_today</mat-icon>
+                        <span class="text-chip text-white">{{ movie.release_date | slice:0:4 }}</span>
+                    </div>
+                </div>
+                <div class="rotate-90 average-position">
+                    <div class="d-inline" *ngIf="movie && movie.vote_average">
+                        <mat-icon class="icon-chip c-yellow">star</mat-icon>
+                        <span class="text-chip text-white">{{ movie.vote_average | number:'1.1-2' }}/10</span>
+                    </div>
                 </div>
             </div>
-            <div class="col-12 mb-3" *ngIf="movie && director">
-                <div class="d-inline c-yellow">
-                    <span class="text-format">Director: {{ director }}</span>
+            <div class="d-none d-md-flex col-md-3 position-relative">
+                <img class="w-100 thumb-img animate__animated animate__flipInX" alt="{{ movie.title ? movie.title : '' }}"
+                    [lazyLoad]="movie.poster_path ? _globals.BASE_IMAGE_URL + movie.poster_path : _globals.NO_IMAGE_URL" />
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="mt-4" *ngIf="movie && movie.title">
+                    <p class="white header-first-title mb-0">{{ movie.title }}</p>
+                </div>
+                <div class="mb-3">
+                    <div *ngIf="movie && movie.genres">
+                        <div class="d-inline soft-white" *ngFor="let genre of movie.genres; last as isLast">
+                            <span class="text-format">{{ genre.name }}</span>
+                            <span class="px-1" *ngIf="!isLast">·</span>
+                        </div>
+                    </div>
+                    <div class="d-inline c-yellow" *ngIf="movie && director">
+                        <span class="text-format">Director: {{ director }}</span>
+                    </div>
+                </div>
+                <div class="text-white text-format" *ngIf="movie && movie.overview">
+                    <div class="mb-2">
+                        <b>Descripción</b>
+                    </div>
+                    <p class="detail" *ngIf="!this.expandedOverview">{{ movie.overview.length > 240 ? (movie.overview
+                        | slice:0:240) + "..." : movie.overview }}
+                        <span (click)="toggleOverview()"
+                            [ngClass]="movie.overview.length > 240 ? 'd-inline-block' : 'd-none'" class="p-0 arrow more">
+                            <b class="pl-2 c-yellow cursor-pointer">Leer más</b>
+                        </span>
+                    </p>
+                    <p class="detail" *ngIf="this.expandedOverview">{{ movie.overview }}
+                        <span (click)="toggleOverview()"
+                            [ngClass]="movie.overview.length > 240 ? 'd-inline-block' : 'd-none'" class="p-0 arrow more">
+                            <b class="pl-2 c-yellow cursor-pointer">Leer menos</b>
+                        </span>
+                    </p>
                 </div>
             </div>
-            <div class="col-12 text-white text-format" *ngIf="movie && movie.overview">
-                <div class="mb-2">
-                    <b>Sinópsis</b>
-                </div>
-                <p class="detail" *ngIf="!this.expandedOverview">{{ movie.overview.length > 240 ? (movie.overview
-                    | slice: 0:240) + "..." : movie.overview }}
-                    <span (click)="toggleOverview()"
-                        [ngClass]="movie.overview.length > 240 ? 'd-inline-block' : 'd-none'" class="p-0 arrow more">
-                        <b class="pl-2 c-yellow cursor-pointer">Leer más</b>
-                    </span>
-                </p>
-                <p class="detail" *ngIf="this.expandedOverview">{{ movie.overview }}
-                    <span (click)="toggleOverview()"
-                        [ngClass]="movie.overview.length > 240 ? 'd-inline-block' : 'd-none'" class="p-0 arrow more">
-                        <b class="pl-2 c-yellow cursor-pointer">Leer menos</b>
-                    </span>
-                </p>
-            </div>
+        </div>
+    </section>
+    <section class="container-fluid container-width mb-5">
+        <div class="row">
             <div class="col-12 text-white text-format mb-3">
                 <div class="mb-2">
                     <b>Casting</b>
                 </div>
-                <div *ngFor="let cast of casting | slice:0:5">
-                    <app-casting-card [cast]="cast"></app-casting-card>
-                </div>
+                <app-casting-swiper [casting]="casting | slice:0:20"></app-casting-swiper>
             </div>
             <div class="col-12 text-white text-format">
-                <div class="mb-2">
-                    <b>Películas relacionadas</b>
+                <div class="similar-text">
+                    <b>Películas similares</b>
                 </div>
+                <app-horizontal-card-swiper [similarMovies]="similarMovies"></app-horizontal-card-swiper>
             </div>
         </div>
     </section>
 </section>
 <section *ngIf="(type === 'tvShow') && tvShow">
-    <section class="container-fluid">
+    <section class="container-fluid container-width">
         <div class="row">
             <div class="col-6">
-                <button mat-mini-fab class="c-back-position" (click)="goBack()">
-                    <i class="material-icons">arrow_back</i>
+                <button mat-mini-fab class="c-back-position d-inline-block d-md-none" (click)="goBack()">
+                    <i class="material-icons text-white">arrow_back</i>
+                </button>
+                <button mat-button class="c-back-position d-none d-md-inline-block" (click)="goBack()">
+                    <i class="material-icons text-white">arrow_back</i>
+                    <span class="text-white c-back-text">Volver</span>
                 </button>
             </div>
             <div class="col-6">
@@ -108,8 +159,18 @@
             </div>
         </div>
     </section>
-    <section class="container-fluid mb-5">
-        <div class="row" style="padding-top: 12px;">
+    <section class="w-100 mb-5 mb-md-1 d-none d-md-block">
+        <div class="row mx-0">
+            <div class="col-12 px-0">
+                <div class="img-container">
+                    <img class="w-100" alt="{{ tvShow.name ? tvShow.name : '' }}"
+                        [lazyLoad]="tvShow.backdrop_path ? _globals.BASE_ORIGINAL_IMAGE_URL + tvShow.backdrop_path : _globals.NO_IMAGE_URL" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container-fluid container-width d-block d-md-none">
+        <div class="row c-pt-12">
             <div class="col-2 position-relative">
                 <div class="rotate-90 time-position">
                     <div class="d-inline" *ngIf="tvShow && tvShow.episode_run_time && tvShow.episode_run_time[0]">
@@ -135,49 +196,94 @@
                     [lazyLoad]="tvShow.poster_path ? _globals.BASE_IMAGE_URL + tvShow.poster_path : _globals.NO_IMAGE_URL" />
             </div>
         </div>
-        <div class="col-12 mt-4" *ngIf="tvShow && tvShow.name">
-            <p class="white header-first-title mb-0">{{ tvShow.name }}</p>
-        </div>
-        <div class="col-12 mb-2" *ngIf="tvShow && tvShow.genres">
-            <div>
-                <div class="d-inline soft-white" *ngFor="let genre of tvShow.genres; last as isLast">
-                    <span class="text-format">{{ genre.name }}</span>
-                    <span class="px-1" *ngIf="!isLast">·</span>
+    </section>
+    <section class="container-fluid container-width mb-3 mb-md-0">
+        <div class="row">
+            <div class="d-none d-md-flex offset-md-1 col-md-1 position-relative">
+                <div class="rotate-90 time-position">
+                    <div class="d-inline" *ngIf="tvShow && tvShow.episode_run_time && tvShow.episode_run_time[0]">
+                        <mat-icon class="icon-chip c-yellow">schedule</mat-icon>
+                        <span class="text-chip text-white">{{ tvShow.episode_run_time[0] | movieRunTime }}</span>
+                    </div>
+                </div>
+                <div class="rotate-90 date-position">
+                    <div class="d-inline" *ngIf="tvShow && tvShow.first_air_date">
+                        <mat-icon class="icon-chip c-yellow">calendar_today</mat-icon>
+                        <span class="text-chip text-white">{{ tvShow.first_air_date | slice:0:4 }}</span>
+                    </div>
+                </div>
+                <div class="rotate-90 average-position">
+                    <div class="d-inline" *ngIf="tvShow && tvShow.vote_average">
+                        <mat-icon class="icon-chip c-yellow">star</mat-icon>
+                        <span class="text-chip text-white">{{ tvShow.vote_average | number:'1.1-2' }}/10</span>
+                    </div>
                 </div>
             </div>
-            <div class="d-inline c-yellow" *ngIf="tvShow && creator">
-                <span class="text-format">Creador: {{ creator }}</span>
+            <div class="d-none d-md-flex col-md-3 position-relative">
+                <img class="w-100 thumb-img" alt="{{ tvShow.name ? tvShow.name : '' }}"
+                    [lazyLoad]="tvShow.poster_path ? _globals.BASE_IMAGE_URL + tvShow.poster_path : _globals.NO_IMAGE_URL" />
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="mt-4" *ngIf="tvShow && tvShow.name">
+                    <p class="white header-first-title mb-0">{{ tvShow.name }}</p>
+                </div>
+                <div class="mb-3">
+                    <div *ngIf="tvShow && tvShow.genres">
+                        <div class="d-inline soft-white" *ngFor="let genre of tvShow.genres; last as isLast">
+                            <span class="text-format">{{ genre.name }}</span>
+                            <span class="px-1" *ngIf="!isLast">·</span>
+                        </div>
+                    </div>
+                    <div class="d-inline c-yellow" *ngIf="tvShow && creator">
+                        <span class="text-format">Creador: {{ creator }}</span>
+                    </div>
+                    <div class="w-100 mt-2 mb-3">
+                        <mat-chip-list>
+                            <mat-chip>
+                                <span class="text-chip">Temporadas: {{ tvShow.number_of_seasons }}</span>
+                            </mat-chip>
+                            <mat-chip>
+                                <span class="text-chip">Episodios: {{ tvShow.number_of_episodes }}</span>
+                            </mat-chip>
+                        </mat-chip-list>
+                    </div>
+                </div>
+                <div class="text-white text-format" *ngIf="tvShow && tvShow.overview">
+                    <div class="mb-2">
+                        <b>Descripción</b>
+                    </div>
+                    <p class="detail" *ngIf="!this.expandedOverview">{{ tvShow.overview.length > 240 ? (tvShow.overview
+                        | slice:0:240) + "..." : tvShow.overview }}
+                        <span (click)="toggleOverview()"
+                            [ngClass]="tvShow.overview.length > 240 ? 'd-inline-block' : 'd-none'"
+                            class="p-0 arrow more">
+                            <b class="pl-2 c-yellow cursor-pointer">Leer más</b>
+                        </span>
+                    </p>
+                    <p class="detail" *ngIf="this.expandedOverview">{{ tvShow.overview }}
+                        <span (click)="toggleOverview()"
+                            [ngClass]="tvShow.overview.length > 240 ? 'd-inline-block' : 'd-none'"
+                            class="p-0 arrow more">
+                            <b class="pl-2 c-yellow cursor-pointer">Leer menos</b>
+                        </span>
+                    </p>
+                </div>
             </div>
         </div>
-        <div class="col-12 text-white text-format" *ngIf="tvShow && tvShow.overview">
-            <div class="mb-2">
-                <b>Sinópsis</b>
+    </section>
+    <section class="container-fluid container-width mb-5">
+        <div class="row">
+            <div class="col-12 text-white text-format mb-3">
+                <div class="mb-2">
+                    <b>Casting</b>
+                </div>
+                <app-casting-swiper [casting]="casting | slice:0:20"></app-casting-swiper>
             </div>
-            <p class="detail" *ngIf="!this.expandedOverview">{{ tvShow.overview.length > 240 ? (tvShow.overview
-                | slice: 0:240) + "..." : tvShow.overview }}
-                <span (click)="toggleOverview()" [ngClass]="tvShow.overview.length > 240 ? 'd-inline-block' : 'd-none'"
-                    class="p-0 arrow more">
-                    <b class="pl-2 c-yellow cursor-pointer">Leer más</b>
-                </span>
-            </p>
-            <p class="detail" *ngIf="this.expandedOverview">{{ tvShow.overview }}
-                <span (click)="toggleOverview()" [ngClass]="tvShow.overview.length > 240 ? 'd-inline-block' : 'd-none'"
-                    class="p-0 arrow more">
-                    <b class="pl-2 c-yellow cursor-pointer">Leer menos</b>
-                </span>
-            </p>
-        </div>
-        <div class="col-12 text-white text-format mb-3">
-            <div class="mb-2">
-                <b>Casting</b>
-            </div>
-            <div *ngFor="let cast of casting | slice:0:5">
-                <app-casting-card [cast]="cast"></app-casting-card>
-            </div>
-        </div>
-        <div class="col-12 text-white text-format">
-            <div class="mb-2">
-                <b>Series relacionadas</b>
+            <div class="col-12 text-white text-format">
+                <div class="similar-text">
+                    <b>Series similares</b>
+                </div>
+                <app-horizontal-card-swiper [similarTvShows]="similarTvShows"></app-horizontal-card-swiper>
             </div>
         </div>
     </section>

@@ -56,7 +56,7 @@ export class MoviesService {
   
   getMovieDetail(id: string): Observable<MovieDetailInterface | null> {
     let params = this.getParams();
-    params = params.append('append_to_response', 'release_dates,credits')
+    params = params.append('append_to_response', 'release_dates,credits,similar')
 
     return this._http.get<MovieDetailInterface>(`${this._globals.BASE_URL}/movie/${id}`, {params})
     .pipe(
@@ -66,7 +66,7 @@ export class MoviesService {
 
   getTvShowDetail(id: string): Observable<TvShowDetailInterface | null> {
     let params = this.getParams();
-    params = params.append('append_to_response', 'content_ratings,credits')
+    params = params.append('append_to_response', 'content_ratings,credits,similar')
 
     return this._http.get<TvShowDetailInterface>(`${this._globals.BASE_URL}/tv/${id}`, {params})
     .pipe(
