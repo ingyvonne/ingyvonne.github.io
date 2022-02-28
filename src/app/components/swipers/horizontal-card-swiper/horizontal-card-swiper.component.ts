@@ -1,5 +1,5 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { Globals } from 'src/app/config/Globals';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { GlobalConstants } from 'src/app/config/GlobalConstants';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { MovieInterface } from 'src/app/interfaces/movie-list-interface';
 import { TvShowInterface } from 'src/app/interfaces/tv-show-list-interface';
@@ -9,7 +9,7 @@ import { TvShowInterface } from 'src/app/interfaces/tv-show-list-interface';
   templateUrl: './horizontal-card-swiper.component.html',
   styleUrls: ['./horizontal-card-swiper.component.css', '../swiper-styles.css']
 })
-export class HorizontalCardSwiperComponent implements OnInit, OnChanges {
+export class HorizontalCardSwiperComponent implements OnChanges {
   @Input() public similarMovies!: MovieInterface[];
   @Input() public similarTvShows!: TvShowInterface[];
   public loading = true;
@@ -17,7 +17,6 @@ export class HorizontalCardSwiperComponent implements OnInit, OnChanges {
   public similarTvShowsCards!: TvShowInterface[];
 
   constructor(
-      public _globals: Globals
   ) { }
 
   horizontalConfig: SwiperConfigInterface = {
@@ -59,8 +58,6 @@ export class HorizontalCardSwiperComponent implements OnInit, OnChanges {
         }
       }
   };
-
-  ngOnInit() { }
 
   ngOnChanges(changes: SimpleChanges): void {
 

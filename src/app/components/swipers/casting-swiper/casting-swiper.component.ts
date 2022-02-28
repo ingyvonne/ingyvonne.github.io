@@ -1,5 +1,4 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
-import { Globals } from 'src/app/config/Globals';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { CastInterface } from 'src/app/interfaces/credit-interface';
 
@@ -9,14 +8,13 @@ import { CastInterface } from 'src/app/interfaces/credit-interface';
   templateUrl: './casting-swiper.component.html',
   styleUrls: ['./casting-swiper.component.css', '../swiper-styles.css']
 })
-export class CastingSwiperComponent implements OnInit {
+export class CastingSwiperComponent implements OnChanges {
   
   @Input() public casting!: CastInterface[];
   public loading = true;
   public castingCards!: CastInterface[];
 
   constructor(
-      public _globals: Globals
   ) { }
 
   horizontalConfig: SwiperConfigInterface = {
@@ -58,8 +56,6 @@ export class CastingSwiperComponent implements OnInit {
         }
       }
   };
-
-  ngOnInit() { }
 
   ngOnChanges(changes: SimpleChanges): void {
 

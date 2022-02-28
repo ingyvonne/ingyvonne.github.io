@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { GlobalConstants } from 'src/app/config/GlobalConstants';
 
 import { HorizontalCardComponent } from './horizontal-card.component';
 
@@ -8,7 +9,9 @@ describe('HorizontalCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HorizontalCardComponent ]
+      declarations: [
+        HorizontalCardComponent
+      ]
     })
     .compileComponents();
   });
@@ -19,7 +22,7 @@ describe('HorizontalCardComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create HorizontalCardComponent', () => {
     expect(component).toBeTruthy();
   });
 });

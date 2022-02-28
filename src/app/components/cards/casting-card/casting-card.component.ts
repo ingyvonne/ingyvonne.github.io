@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Globals } from 'src/app/config/Globals';
+import { Component, Input } from '@angular/core';
+import { GlobalConstants } from 'src/app/config/GlobalConstants';
 import { CastInterface } from 'src/app/interfaces/credit-interface';
 
 @Component({
@@ -7,14 +7,11 @@ import { CastInterface } from 'src/app/interfaces/credit-interface';
   templateUrl: './casting-card.component.html',
   styleUrls: ['./casting-card.component.css', '../card-styles.css']
 })
-export class CastingCardComponent implements OnInit {
+export class CastingCardComponent {
   @Input() public cast!: CastInterface; 
-  
-  constructor(
-    public _globals: Globals
-  ) { }
+  public _globals = GlobalConstants;
 
-  ngOnInit(): void {
-  }
+  constructor(
+  ) { }
 
 }

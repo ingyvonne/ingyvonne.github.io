@@ -8,7 +8,9 @@ describe('CastingSwiperComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CastingSwiperComponent ]
+      declarations: [
+        CastingSwiperComponent
+      ]
     })
     .compileComponents();
   });
@@ -19,7 +21,7 @@ describe('CastingSwiperComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create CastingSwiperComponent', () => {
     expect(component).toBeTruthy();
   });
 });

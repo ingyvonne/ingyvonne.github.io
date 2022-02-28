@@ -1,5 +1,4 @@
 import { CreditInterface } from "./credit-interface";
-import { TvShowResponseInterface } from "./tv-show-list-interface";
 
 export interface TvShowDetailInterface {
     adult: boolean;
@@ -15,7 +14,7 @@ export interface TvShowDetailInterface {
     last_air_date: string;
     last_episode_to_air: Lastepisodetoair;
     name: string;
-    next_episode_to_air: Nextepisodetoair;
+    next_episode_to_air?: any | null;
     networks: Network[];
     number_of_episodes: number;
     number_of_seasons: number;
@@ -36,7 +35,31 @@ export interface TvShowDetailInterface {
     vote_count: number;
     content_ratings: Contentratings;
     credits: CreditInterface;
-    similar: TvShowResponseInterface;
+    similar: Similar;
+}
+
+export interface Similar {
+    page: number;
+    results: Result2[];
+    total_pages: number;
+    total_results: number;
+}
+
+export interface Result2 {
+    adult: boolean;
+    backdrop_path: string;
+    genre_ids: number[];
+    id: number;
+    name: string;
+    origin_country: string[];
+    original_language: string;
+    original_name: string;
+    overview: string;
+    popularity: number;
+    poster_path: string;
+    first_air_date: string;
+    vote_average: number;
+    vote_count: number;
 }
 
 export interface Contentratings {
@@ -72,7 +95,7 @@ export interface Productioncountry {
 export interface Productioncompany {
     name: string;
     id: number;
-    logo_path?: string;
+    logo_path?: string | null;
     origin_country: string;
 }
 
@@ -81,19 +104,6 @@ export interface Network {
     id: number;
     logo_path: string;
     origin_country: string;
-}
-
-export interface Nextepisodetoair {
-    air_date: string;
-    episode_number: number;
-    id: number;
-    name: string;
-    overview: string;
-    production_code: string;
-    season_number: number;
-    still_path?: any;
-    vote_average: number;
-    vote_count: number;
 }
 
 export interface Lastepisodetoair {

@@ -42,41 +42,49 @@ export class HomeComponent implements OnInit {
 
     ]).subscribe( ([allMovies, allMovieGenres, allTvShows, allTvShowGenres]) => {
       this.allMovies = allMovies;
-      this.allMovieGenres = allMovieGenres.genres;
+      this.allMovieGenres = (allMovieGenres && allMovieGenres.genres) ? allMovieGenres.genres : [];
       this.allTvShows = allTvShows;
-      this.allTvShowGenres = allTvShowGenres.genres;
-      this.allMovies.forEach(movie => {
-        this.createRoutingById(movie, 'movie');
-        this.getGenresForMovie(movie, this.allMovieGenres);
-      });
-      this.allTvShows.forEach(tvShow => {
-        this.createRoutingById(tvShow, 'tvShow');
-        this.getGenresForTvShow(tvShow, this.allTvShowGenres);
-      });
+      this.allTvShowGenres = (allTvShowGenres && allTvShowGenres.genres) ? allTvShowGenres.genres : [];
+      if (this.allMovies && (this.allMovies.length > 0)) {
+        this.allMovies.forEach(movie => {
+          this.createRoutingById(movie, 'movie');
+          this.getGenresForMovie(movie, this.allMovieGenres);
+        });
+      }
+      if (this.allTvShows && (this.allTvShows.length > 0)) {
+        this.allTvShows.forEach(tvShow => {
+          this.createRoutingById(tvShow, 'tvShow');
+          this.getGenresForTvShow(tvShow, this.allTvShowGenres);
+        });
+      }
     });
   }
 
-  getGenresForMovie(movie: MovieInterface, genresArray: GenreInterface[]) {
+  getGenresForMovie(movie: MovieInterface, genresArray: GenreInterface[] | null) {
     let moviesGenresArray: GenreInterface[] = [];
     let genreFind;
       movie.genre_ids.forEach(genreId => {
-        if (genresArray.some( genre => (genre.id === genreId))) {
-          genreFind = genresArray.filter(genre => (genre.id === genreId));
-          moviesGenresArray.push(genreFind[0]);
+        if (genresArray && (genresArray.length > 0)) {
+          if (genresArray.some( genre => (genre.id === genreId))) {
+            genreFind = genresArray.filter(genre => (genre.id === genreId));
+            moviesGenresArray.push(genreFind[0]);
+          }
         }
       });
       movie.genres = moviesGenresArray;
   }
 
-  getGenresForTvShow(tvShow: TvShowInterface, genresArray: GenreInterface[]) {
+  getGenresForTvShow(tvShow: TvShowInterface, genresArray: GenreInterface[] | null) {
     let tvShowGenresArray: GenreInterface[] = [];
     let genreFind;
     tvShow.genre_ids.forEach(genreId => {
+      if (genresArray && (genresArray.length > 0)) {
         if (genresArray.some( genre => (genre.id === genreId))) {
           genreFind = genresArray.filter(genre => (genre.id === genreId));
           tvShowGenresArray.push(genreFind[0]);
         }
-      });
+      }
+    });
     tvShow.genres = tvShowGenresArray;
   }
 

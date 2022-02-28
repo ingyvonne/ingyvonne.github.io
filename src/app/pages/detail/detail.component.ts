@@ -2,7 +2,7 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { combineLatest } from 'rxjs';
-import { Globals } from 'src/app/config/Globals';
+import { GlobalConstants } from 'src/app/config/GlobalConstants';
 import { CastInterface } from 'src/app/interfaces/credit-interface';
 import { GenreInterface, MovieDetailInterface } from 'src/app/interfaces/movie-detail-interface';
 import { MovieInterface } from 'src/app/interfaces/movie-list-interface';
@@ -15,8 +15,8 @@ import { MoviesService } from 'src/app/services/movies.service';
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.css']
 })
-export class DetailComponent implements OnInit {
-
+export class DetailComponent {
+  public _globals = GlobalConstants;
   public movie!: MovieDetailInterface | null;
   public tvShow!: TvShowDetailInterface | null;
   public type!: string;
@@ -34,8 +34,7 @@ export class DetailComponent implements OnInit {
     private _activatedRoute: ActivatedRoute,
     private _moviesService: MoviesService,
     private _location: Location,
-    private _router: Router,
-    public _globals: Globals
+    private _router: Router
   ) {
     // override the route reuse strategy
     this._router.routeReuseStrategy.shouldReuseRoute = function () {
@@ -64,9 +63,6 @@ export class DetailComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-  }
-
   scrollToTop() {
     window.scrollTo(0, 0);
   }
@@ -87,7 +83,7 @@ export class DetailComponent implements OnInit {
           return;
         }
         this.tvShow = detail;
-        this.allTvShowGenres = allTvShowGenres.genres;
+        this.allTvShowGenres = (allTvShowGenres && allTvShowGenres.genres) ? allTvShowGenres.genres : [];
         this.getCreator(this.tvShow);
         this.getCasting(this.tvShow);
         this.getTvShowCertification(this.tvShow);
@@ -106,7 +102,7 @@ export class DetailComponent implements OnInit {
           return;
         }
         this.movie = detail;
-        this.allMovieGenres = allMovieGenres.genres;
+        this.allMovieGenres = (allMovieGenres && allMovieGenres.genres) ? allMovieGenres.genres : [];
         this.getDirector(this.movie);
         this.getCasting(this.movie);
         this.getMovieCertification(this.movie);

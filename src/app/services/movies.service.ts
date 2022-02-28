@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Globals } from '../config/Globals';
+import { GlobalConstants } from '../config/GlobalConstants';
 import { GenreResponseInterface } from '../interfaces/genre-interface';
 import { MovieInterface, MovieResponseInterface } from '../interfaces/movie-list-interface';
 import { TvShowInterface, TvShowResponseInterface } from '../interfaces/tv-show-list-interface';
@@ -13,10 +13,10 @@ import { TvShowDetailInterface } from '../interfaces/tv-show-detail-interface';
   providedIn: 'root'
 })
 export class MoviesService {
-
+  public _globals = GlobalConstants;
+  
   constructor(
     private _http: HttpClient,
-    private _globals: Globals
   ) { }
 
   getParams() {

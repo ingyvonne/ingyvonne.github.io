@@ -8,7 +8,9 @@ describe('HorizontalCardSwiperComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HorizontalCardSwiperComponent ]
+      declarations: [
+        HorizontalCardSwiperComponent
+      ]
     })
     .compileComponents();
   });
@@ -19,7 +21,7 @@ describe('HorizontalCardSwiperComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create HorizontalCardSwiperComponent', () => {
     expect(component).toBeTruthy();
   });
 });

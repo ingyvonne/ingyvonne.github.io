@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { Globals } from './config/Globals';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from '@angular/router';
@@ -39,7 +38,6 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     })
   ],
   providers: [
-    Globals,
     { 
       provide: SWIPER_CONFIG, 
       useValue: DEFAULT_SWIPER_CONFIG

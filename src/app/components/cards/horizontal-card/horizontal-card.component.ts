@@ -1,8 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
-import { Router } from '@angular/router';
-import { Globals } from 'src/app/config/Globals';
+import { GlobalConstants } from 'src/app/config/GlobalConstants';
 import { MovieInterface } from 'src/app/interfaces/movie-list-interface';
 import { TvShowInterface } from 'src/app/interfaces/tv-show-list-interface';
 
@@ -11,16 +10,14 @@ import { TvShowInterface } from 'src/app/interfaces/tv-show-list-interface';
   templateUrl: './horizontal-card.component.html',
   styleUrls: ['./horizontal-card.component.css', '../card-styles.css']
 })
-export class HorizontalCardComponent implements OnInit {
+export class HorizontalCardComponent {
   @Input() public movie!: MovieInterface;
   @Input() public tvShow!: TvShowInterface;
-  color: ThemePalette = 'primary';
-  mode: ProgressSpinnerMode = 'determinate';
+  public color: ThemePalette = 'primary';
+  public mode: ProgressSpinnerMode = 'determinate';
+  public _globals = GlobalConstants;
 
     constructor(
-    public _globals: Globals,
   ) { }
-
-  ngOnInit(): void { }
 
 }
