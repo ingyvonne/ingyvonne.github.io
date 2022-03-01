@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1646095178462,
+  "timestamp": 1646096938959,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -85,7 +85,7 @@
     "/assets/mocks/tv-show-genre.ts": "bd3a444ce5a1c2681b4e70a3c6aef77fea225143",
     "/assets/no-image.jpg": "6f0844043e59ff0966f5c1de2252c52b800d92c4",
     "/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/index.html": "861ab378b2103da5e0b569aa8655e6a5362f1f3f",
+    "/index.html": "72c7cff146375c858d1f5f611db4bc08a784bbbe",
     "/main.7cfd3520b6502f7af815.js": "86deef0abda5d59899f9da45362b3967e34e118a",
     "/manifest.webmanifest": "0b4d6d7a12cae69ad89670b8f3b8a6d0586146e0",
     "/polyfills.cca54aa52c375aee1289.js": "5da65d22cdc7385968e14e4e35fce3da8008149b",
