@@ -1,0 +1,115 @@
+{
+  "configVersion": 1,
+  "timestamp": 1646095178462,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/254.fb67f2c44ab9e38134da.js",
+        "/572.d44e05b646a11f3e0491.js",
+        "/771.7c23871d4955e4fff3c4.js",
+        "/784.91c7a31124175d2d0fcb.js",
+        "/950.e3547ec195d6ea8f66c5.js",
+        "/favicon.ico",
+        "/index.html",
+        "/main.7cfd3520b6502f7af815.js",
+        "/manifest.webmanifest",
+        "/polyfills.cca54aa52c375aee1289.js",
+        "/runtime.f93bafa2b1556d6f3e0f.js",
+        "/scripts.3a7e8cfbe7165b9ebd62.js",
+        "/styles.a4e07ff5702b3d5bf4c8.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/404-pict.ee439bab16264e26d6e3.gif",
+        "/assets/404-pict.gif",
+        "/assets/MTVS.png",
+        "/assets/MTVS_favicon.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-48x48.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/mocks/movie-detail.ts",
+        "/assets/mocks/movie-genre.ts",
+        "/assets/mocks/movies-service.ts",
+        "/assets/mocks/popular-movies-response.ts",
+        "/assets/mocks/popular-movies.ts",
+        "/assets/mocks/popular-tv-shows.ts",
+        "/assets/mocks/tv-show-detail.ts",
+        "/assets/mocks/tv-show-genre.ts",
+        "/assets/no-image.jpg"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/254.fb67f2c44ab9e38134da.js": "bff19fe4fd2a0a1c2145812f136734d838070ffe",
+    "/404-pict.ee439bab16264e26d6e3.gif": "bfed9df36c75976bf486fca65f86c73051e16947",
+    "/572.d44e05b646a11f3e0491.js": "161c69446388ef0928bcbd03ae8e37e7653398fa",
+    "/771.7c23871d4955e4fff3c4.js": "c8625c37c1a5bfa9aef6701bb066aa5f016b6cf9",
+    "/784.91c7a31124175d2d0fcb.js": "0cd9521ec756242dee2232885d7e1f0b8e296db5",
+    "/950.e3547ec195d6ea8f66c5.js": "ce5510cdde43840a6a5f385b9bfec1e2e781f5c7",
+    "/assets/404-pict.gif": "bfed9df36c75976bf486fca65f86c73051e16947",
+    "/assets/MTVS.png": "53e8153d24f778af600fb73a7d03f57ac1c2ed6a",
+    "/assets/MTVS_favicon.png": "e2a11bc0cc5cfc1d92e4e7d405b17a74bf407a57",
+    "/assets/icons/icon-144x144.png": "a7d15db00d874a6201b4fe6c7b2e9dd74fd62609",
+    "/assets/icons/icon-192x192.png": "ca00e0aed5c117a36800aa79a986f8ad7b5988eb",
+    "/assets/icons/icon-48x48.png": "d52d87d16cd80f4e28e331e0d90b28c1599f6a13",
+    "/assets/icons/icon-512x512.png": "8aa94923ec2e1018b28b4497a4be256ad64fb19a",
+    "/assets/icons/icon-72x72.png": "4df701519b165e54024c43f2df50085305077e82",
+    "/assets/icons/icon-96x96.png": "8e62417b04cc9cf31887ad170ab8ba7d85f2b732",
+    "/assets/mocks/movie-detail.ts": "09b1bd7b330396cc338887ed8bc725435b96ed4c",
+    "/assets/mocks/movie-genre.ts": "6caf6f7ff5c8fd09d0df701e3bd31989f0d37161",
+    "/assets/mocks/movies-service.ts": "ab7aa4c3a32c8c64c4d7dd6a21a7b0552bfc26ff",
+    "/assets/mocks/popular-movies-response.ts": "8f2f9fc0b2855aed2ecf46202f0d8491ed10613a",
+    "/assets/mocks/popular-movies.ts": "7e295e816ad8c17bcdbfadb8526beed4329eec66",
+    "/assets/mocks/popular-tv-shows.ts": "6e7077a43332aa7b5abf8608f08423a3c21ccb0a",
+    "/assets/mocks/tv-show-detail.ts": "a94359b7b81f0b49804c778b0daf7f1f80e2a533",
+    "/assets/mocks/tv-show-genre.ts": "bd3a444ce5a1c2681b4e70a3c6aef77fea225143",
+    "/assets/no-image.jpg": "6f0844043e59ff0966f5c1de2252c52b800d92c4",
+    "/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "/index.html": "861ab378b2103da5e0b569aa8655e6a5362f1f3f",
+    "/main.7cfd3520b6502f7af815.js": "86deef0abda5d59899f9da45362b3967e34e118a",
+    "/manifest.webmanifest": "0b4d6d7a12cae69ad89670b8f3b8a6d0586146e0",
+    "/polyfills.cca54aa52c375aee1289.js": "5da65d22cdc7385968e14e4e35fce3da8008149b",
+    "/runtime.f93bafa2b1556d6f3e0f.js": "ffa87a9894ae111fc26fa0ef08852c9dae377733",
+    "/scripts.3a7e8cfbe7165b9ebd62.js": "c2ca5c1e5c2af3911440f915c30ae4d4876292e8",
+    "/styles.a4e07ff5702b3d5bf4c8.css": "7c41f6d90f133d3eadc2631ffc7a9354d1edc3c3"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
