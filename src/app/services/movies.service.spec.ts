@@ -1,9 +1,6 @@
-import { HttpClient, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
-import { TestBed, tick } from '@angular/core/testing';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpErrorResponse } from '@angular/common/http';
 import { MoviesService } from './movies.service';
 import { mockPopularMovies } from 'src/assets/mocks/popular-movies';
-import { mockMoviesService } from 'src/assets/mocks/movies-service';
 import { of, throwError } from 'rxjs';
 import { mockPopularTvShows } from 'src/assets/mocks/popular-tv-shows';
 import { mockMovieGenre } from 'src/assets/mocks/movie-genre';

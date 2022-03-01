@@ -65,7 +65,6 @@ describe('DetailComponent', () => {
     fixture.detectChanges();
     expect(mockMoviesService.getMovieGenres).toHaveBeenCalled();
     expect(component.allMovieGenres).toBeDefined();
-    // expect(component.allTvShows.length).toBeGreaterThan(0);
   }));
 
   it('should call getTvShowDetail', fakeAsync(() => {
@@ -76,7 +75,6 @@ describe('DetailComponent', () => {
     expect(mockMoviesService.getTvShowDetail).toHaveBeenCalled();
     expect(component.tvShow).toBeDefined();
     expect(component.tvShow).toEqual(mockTvShowDetail);
-    // expect(component.allTvShows.length).toBeGreaterThan(0);
   }));
   
   it('should call getTvShowGenres', fakeAsync(() => {
@@ -86,6 +84,5 @@ describe('DetailComponent', () => {
     fixture.detectChanges();
     expect(mockMoviesService.getTvShowGenres).toHaveBeenCalled();
     expect(component.allTvShowGenres).toBeDefined();
-    // expect(component.allTvShows.length).toBeGreaterThan(0);
   }));
 });
